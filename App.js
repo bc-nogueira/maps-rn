@@ -9,10 +9,12 @@ export default class App extends Component {
     super(props);
     this.state = { 
       // markers: [],
+      // IC
       origin: {
         latitude: -22.905837,
         longitude: -43.133239,
       },
+      // STI
       destination: {
         latitude: -22.896679,
         longitude: -43.124275,
@@ -58,8 +60,8 @@ export default class App extends Component {
         {/* {this.state.markers.map((marker, i) => {
           return <Marker {...marker} key={i} />
         })} */}
-        <Marker coordinate={this.state.origin} />
-        <Marker coordinate={this.state.destination} />
+        <Marker coordinate={this.state.origin} title="Origem" />
+        <Marker coordinate={this.state.destination} title="Destino" />
         <MapViewDirections
           origin={this.state.origin}
           destination={this.state.destination}

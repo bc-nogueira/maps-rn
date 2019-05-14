@@ -13,8 +13,6 @@ export default class App extends Component {
 
     constructor(props) {
         super(props);
-        // const inicioTimer = this.props.getParam('inicioTimer');
-        // ToastAndroid.show(inicioTimer, ToastAndroid.SHORT);
         this.state = {
             // markers: [],
             // Roraima

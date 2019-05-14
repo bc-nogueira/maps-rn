@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Button, StyleSheet } from 'react-native';
+import moment from 'moment';
 
 export default class Home extends Component {
     static navigationOptions = {
@@ -13,7 +14,9 @@ export default class Home extends Component {
     render() {
         const {navigate} = this.props.navigation;
         return (
-            <Button title="Abrir Mapa" onPress={() => navigate('Map')} />
+            <Button title="Abrir Mapa" onPress={() => navigate('Map', {
+                inicioTimer: moment().valueOf()
+            })} />
         );
     }
 }

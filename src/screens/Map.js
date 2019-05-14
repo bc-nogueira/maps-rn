@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
-import { Alert, StyleSheet } from 'react-native';
+import { Alert, StyleSheet, ToastAndroid } from 'react-native';
 
 import MapView, { Marker } from 'react-native-maps';
 import MapViewDirections from 'react-native-maps-directions';
+
+import moment from 'moment';
 
 export default class App extends Component {
     static navigationOptions = {
@@ -11,6 +13,8 @@ export default class App extends Component {
 
     constructor(props) {
         super(props);
+        // const inicioTimer = this.props.getParam('inicioTimer');
+        // ToastAndroid.show(inicioTimer, ToastAndroid.SHORT);
         this.state = {
             // markers: [],
             // Roraima
@@ -23,8 +27,14 @@ export default class App extends Component {
                 latitude: -30.0277,
                 longitude: -51.2287,
             },
-            apikey: 'AIzaSyAxFARM9NrPcw8lyIsFrwPRrG1v5kdaKL4'
+            apikey: 'AIzaSyAxFARM9NrPcw8lyIsFrwPRrG1v5kdaKL4',
+            inicioTimer: this.props.navigation.state.params.inicioTimer
         }
+    }
+
+    componentDidMount() {
+        let duracao = moment().valueOf() - this.state.inicioTimer;
+        ToastAndroid.show(duracao.toString() + 'ms', ToastAndroid.SHORT);
     }
 
     handlePress = (e) => {
@@ -49,6 +59,7 @@ export default class App extends Component {
     }
 
     render() {
+        // const inicioTimer = navigation.getParam('inicioTimer');
         return (
             <MapView
                 style={styles.container}
